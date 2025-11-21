@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useAuth } from "@/lib/context";
 import { useSNEL } from "@/lib/snel-context";
 import { ReleveCompteur, Facture } from "@/data/types-snel";
 import LayoutSNEL from "@/components/LayoutSNEL";
 
-export default function FacturationPage() {
+function FacturationContent() {
   const { userBilleterie } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
