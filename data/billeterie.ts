@@ -381,6 +381,7 @@ export function genererDeparts(): Depart[] {
     nombrePlacesReservees: 0,
     prix: 12000,
     statut: "PLANIFIE",
+    disponiblePourAchatImmediat: true,
   },
   // SNCC SNC-02 (Kinshasa → Lubumbashi)
   {
