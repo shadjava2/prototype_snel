@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  snel-proto:
+    build: .
+    container_name: snel-proto
+    ports:
+      - "3399:3000" # hôte:conteneur (port 3399 sur le serveur OVH)
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+
