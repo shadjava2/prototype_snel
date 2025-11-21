@@ -9,4 +9,11 @@ services:
     restart: unless-stopped
     environment:
       - NODE_ENV=production
+    networks:
+      - snel-network
+
+networks:
+  snel-network:
+    driver: bridge
+    name: snel-network
 
