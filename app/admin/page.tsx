@@ -7,7 +7,7 @@ import { useAuth } from "@/lib/context";
 import { useBilleterie } from "@/lib/billeterie-context";
 import { Ligne, Depart } from "@/data/types";
 
-export default function AdminPage() {
+function AdminContent() {
   const { userBilleterie } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
