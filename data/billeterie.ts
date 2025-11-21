@@ -460,8 +460,10 @@ export function genererDeparts(): Depart[] {
     dateHeureArrivee: creerDateArrivee(creerDate(demain, 6, 30), 360),
     nombrePlacesTotal: 50,
     nombrePlacesVendues: 38,
+    nombrePlacesReservees: 0,
     prix: 20000,
     statut: "PLANIFIE",
+    disponiblePourAchatImmediat: true,
   },
   // DÉPARTS SUPPLÉMENTAIRES POUR DÉMONSTRATION
   // BUS-TSC-003 - Départs supplémentaires
