@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useAuth } from "@/lib/context";
 import { useSNEL } from "@/lib/snel-context";
 import { Facture, Paiement, Plainte, ReleveCompteur } from "@/data/types-snel";
 import LayoutSNEL from "@/components/LayoutSNEL";
 
-export default function AdminSNELPage() {
+function AdminSNELContent() {
   const { userBilleterie } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -489,6 +489,23 @@ export default function AdminSNELPage() {
         </div>
       </div>
     </LayoutSNEL>
+  );
+}
+
+export default function AdminSNELPage() {
+  return (
+    <Suspense fallback={
+      <LayoutSNEL>
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0033A0] mx-auto mb-4"></div>
+            <p className="text-slate-600">Chargement...</p>
+          </div>
+        </div>
+      </LayoutSNEL>
+    }>
+      <AdminSNELContent />
+    </Suspense>
   );
 }
 
