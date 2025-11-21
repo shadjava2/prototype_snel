@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ModePaiement } from "@/data/types";
+import { ModePaiement } from "@/data/types-snel";
 
 interface PaymentModalProps {
   isOpen: boolean;
