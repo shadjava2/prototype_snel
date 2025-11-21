@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useAuth } from "@/lib/context";
 import { useSNEL } from "@/lib/snel-context";
@@ -8,7 +8,7 @@ import { Facture, Plainte, Avis, ModePaiement } from "@/data/types-snel";
 import PaymentModal from "@/components/PaymentModal";
 import LayoutSNEL from "@/components/LayoutSNEL";
 
-export default function ClientPage() {
+function ClientContent() {
   const { userBilleterie } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -538,5 +538,22 @@ export default function ClientPage() {
         </div>
       </div>
     </LayoutSNEL>
+  );
+}
+
+export default function ClientPage() {
+  return (
+    <Suspense fallback={
+      <LayoutSNEL>
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0033A0] mx-auto mb-4"></div>
+            <p className="text-slate-600">Chargement...</p>
+          </div>
+        </div>
+      </LayoutSNEL>
+    }>
+      <ClientContent />
+    </Suspense>
   );
 }
