@@ -357,7 +357,7 @@ export function SNELProvider({ children }: { children: ReactNode }) {
     if (!releve || releve.statut !== "SAISI") return false;
 
     setReleves((prev) => {
-      const updated = prev.map((r) => (r.id === releveId ? { ...r, statut: "VALIDE" } : r));
+      const updated = prev.map((r) => (r.id === releveId ? { ...r, statut: "VALIDE" as StatutReleve } : r));
       if (typeof window !== "undefined") {
         localStorage.setItem("snel_demo_releves", JSON.stringify(updated));
       }
@@ -372,7 +372,7 @@ export function SNELProvider({ children }: { children: ReactNode }) {
     if (!releve || releve.statut !== "SAISI") return false;
 
     setReleves((prev) => {
-      const updated = prev.map((r) => (r.id === releveId ? { ...r, statut: "REJETE" } : r));
+      const updated = prev.map((r) => (r.id === releveId ? { ...r, statut: "REJETE" as StatutReleve } : r));
       if (typeof window !== "undefined") {
         localStorage.setItem("snel_demo_releves", JSON.stringify(updated));
       }
