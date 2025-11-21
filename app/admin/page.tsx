@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import LayoutBilleterie from "@/components/LayoutBilleterie";
 import { useAuth } from "@/lib/context";
